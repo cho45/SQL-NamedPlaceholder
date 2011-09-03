@@ -73,8 +73,7 @@ SQL::NamedPlaceholder is extension of placeholder. This enable more readable and
 
 =item ($sql, $bind) = bind_named($sql, $hash);
 
-$sql parameter is SQL string which contains named placeholders. $hahs parameter is map of bind parameters.
-
+The $sql parameter is SQL string which contains named placeholders. The $hash parameter is map of bind parameters.
 
 The returned $sql is new SQL string which contains normal placeholders ('?'), and $bind is array reference of bind parameters.
 
@@ -86,8 +85,11 @@ The returned $sql is new SQL string which contains normal placeholders ('?'), an
 
 =item :foobar
 
-=item foobar = ?, foobar > ?, foobar < ?, foobar <> ?
+Replace as placeholder which uses value from $hash->{foobar}.
 
+=item foobar = ?, foobar > ?, foobar < ?, foobar <> ?, etc.
+
+This is same as 'foobar = :foobar'.
 
 =back
 
