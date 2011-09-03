@@ -15,7 +15,7 @@ sub bind_named {
 	$sql or croak 'my ($sql, $bind) = bind_named($sql, $hash) requires $sql';
 	reftype($hash) eq 'HASH' or croak 'must specify HASH as bind values';
 
-	$sql =~ s{((`?)(\S+?)\2\s*(=|<|>|<>)\s*)\?}{$1:$3}g;
+	$sql =~ s{((`?)(\S+?)\2\s*(=|<=?|>=?|<>|!=|<=>)\s*)\?}{$1:$3}g;
 
 	my $bind = [];
 
@@ -65,7 +65,31 @@ SQL::NamedPlaceholder -
 
 =head1 DESCRIPTION
 
-SQL::NamedPlaceholder is 
+SQL::NamedPlaceholder is extension of placeholder. This enable more readable and robust code.
+
+=head1 FUNCTION
+
+=over 4
+
+=item ($sql, $bind) = bind_named($sql, $hash);
+
+$sql parameter is SQL string which contains named placeholders. $hahs parameter is map of bind parameters.
+
+
+The returned $sql is new SQL string which contains normal placeholders ('?'), and $bind is array reference of bind parameters.
+
+=back
+
+=head1 SYNTAX
+
+=over 4
+
+=item :foobar
+
+=item foobar = ?, foobar > ?, foobar < ?, foobar <> ?
+
+
+=back
 
 =head1 AUTHOR
 
