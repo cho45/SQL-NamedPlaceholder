@@ -23,6 +23,8 @@ name 'SQL-NamedPlaceholder';
 all_from 'lib/SQL/NamedPlaceholder.pm';
 
 requires 'Exporter::Lite';
+requires 'Scalar::Util';
+requires 'Carp';
 
 build_requires 'Test::Name::FromLine';
 
