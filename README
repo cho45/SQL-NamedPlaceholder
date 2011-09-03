@@ -1,27 +1,28 @@
-This is Perl module Text::Xatena.
+NAME
+    SQL::NamedPlaceholder -
 
-INSTALLATION
+SYNOPSIS
+      use SQL::NamedPlaceholder qw(bind_named);
 
-SQL::NamedPlaceholder installation is straightforward. If your CPAN shell is set up,
-you should just be able to do
+      my ($sql, $bind) = bind_named(q[
+          SELECT *
+          FROM entry
+          WHERE
+              user_id = :user_id
+      ], {
+          user_id = $user_id
+      });
 
-    % cpan SQL::NamedPlaceholder
+      $dbh->prepare_cached($sql)->execute(@$bind);
 
-Download it, unpack it, then build it as per the usual:
+DESCRIPTION
+    SQL::NamedPlaceholder is
 
-    % perl Makefile.PL
-    % make && make test
+AUTHOR
+    cho45 <cho45@lowreal.net>
 
-Then install it:
+SEE ALSO
+LICENSE
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
 
-    % make install
-
-DOCUMENTATION
-
-SQL::NamedPlaceholder documentation is available as in POD. So you can do:
-
-    % perldoc SQL::NamedPlaceholder
-
-to read the documentation online with your favorite pager.
-
-cho45
