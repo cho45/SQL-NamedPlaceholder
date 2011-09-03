@@ -57,7 +57,7 @@ SQL::NamedPlaceholder -
       WHERE
           user_id = :user_id
   ], {
-      user_id = $user_id
+      user_id => $user_id
   });
 
   $dbh->prepare_cached($sql)->execute(@$bind);
