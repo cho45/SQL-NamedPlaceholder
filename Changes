@@ -1,2 +1,7 @@
+2012-06-15  SATOH Hiroh <cho45@lowreal.net>
+
+	* 0.02:
+	Fix Makefile.PL (by mechairoi)
+
 
 vim:set ft=changelog:

@@ -7,7 +7,7 @@ use Scalar::Util qw(reftype);
 
 use Carp;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 our @EXPORT_OK = qw(bind_named);
 
 sub bind_named {
