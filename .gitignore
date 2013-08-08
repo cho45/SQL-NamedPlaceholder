@@ -12,3 +12,10 @@ cover_db
 startup.sh
 MYMETA.yml
 MYMETA.json
+/SQL-NamedPlaceholder-*
+/.build
+/_build_params
+/Build
+!Build/
+!META.json
+!LICENSE
