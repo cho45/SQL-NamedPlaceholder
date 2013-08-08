@@ -45,7 +45,7 @@ __END__
 
 =head1 NAME
 
-SQL::NamedPlaceholder - 
+SQL::NamedPlaceholder - extension of placeholder
 
 =head1 SYNOPSIS
 
