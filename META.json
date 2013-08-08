@@ -4,7 +4,7 @@
       "cho45 <cho45@lowreal.net>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.5.6, CPAN::Meta::Converter version 2.131560",
+   "generated_by" : "Minilla/v0.4.5, CPAN::Meta::Converter version 2.131490",
    "license" : [
       "perl_5"
    ],
@@ -66,7 +66,7 @@
          "web" : "https://github.com/cho45/SQL-NamedPlaceholder"
       }
    },
-   "version" : "0.02",
+   "version" : "0.03",
    "x_contributors" : [
       "mechairoi <ttsujikawa@gmail.com>",
       "shiba_yu36 <shibayu36@gmail.com>"
