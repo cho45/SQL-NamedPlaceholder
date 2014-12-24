@@ -20,6 +20,7 @@ sub bind_named {
 	my $bind = [];
 
 	$sql =~ s{:(\w+)}{
+		croak("'$1' does not exist in bind hash") if !exists $hash->{$1};
 		my $type = ref($hash->{$1});
 		if ($type eq 'ARRAY') {
 			if (@{ $hash->{$1} }) {
