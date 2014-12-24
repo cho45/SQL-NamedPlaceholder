@@ -13,7 +13,7 @@ our @EXPORT_OK = qw(bind_named);
 sub bind_named {
 	my ($sql, $hash) = @_;
 	$sql or croak 'my ($sql, $bind) = bind_named($sql, $hash) requires $sql';
-	reftype($hash) eq 'HASH' or croak 'must specify HASH as bind values';
+	(reftype($hash) || '') eq 'HASH' or croak 'must specify HASH as bind values';
 
 	$sql =~ s{((`?)(\S+?)\2\s*(=|<=?|>=?|<>|!=|<=>)\s*)\?}{$1:$3}g;
 
