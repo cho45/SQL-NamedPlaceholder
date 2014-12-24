@@ -15,7 +15,8 @@ sub bind_named {
 	$sql or croak 'my ($sql, $bind) = bind_named($sql, $hash) requires $sql';
 	reftype($hash) eq 'HASH' or croak 'must specify HASH as bind values';
 
-	$sql =~ s{((`?)(\S+?)\2\s*(=|<=?|>=?|<>|!=|<=>)\s*)\?}{$1:$3}g;
+	# replace question marks as placeholder. e.g. [`hoge` = ?] to [`hoge` = :hoge]
+	$sql =~ s{(([`"]?)(\S+?)\2\s*(=|<=?|>=?|<>|!=|<=>)\s*)\?}{$1:$3}g;
 
 	my $bind = [];
 
