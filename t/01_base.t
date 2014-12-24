@@ -29,54 +29,32 @@ subtest basic => sub {
 };
 
 subtest extend => sub {
-	for my $op (qw/= <=> <> != <= < >= >/) {
-		do {
-			my ($sql, $bind) = bind_named(qq{
-				SELECT * FROM entry
-					WHERE blog_id $op ?
-					ORDER BY datetime DESC
-					LIMIT :limit
-			}, {
-				blog_id => 3,
-				limit   => 5
-			});
+	for my $q ('', '`', '"') {
+		for my $op (qw/= <=> <> != <= < >= >/) {
+			do {
+				my ($sql, $bind) = bind_named(qq{
+					SELECT * FROM ${q}entry${q}
+						WHERE ${q}blog_id${q} $op ?
+						ORDER BY datetime DESC
+						LIMIT :limit
+				}, {
+					blog_id => 3,
+					limit   => 5
+				});
 
-			is $sql, qq{
-				SELECT * FROM entry
-					WHERE blog_id $op ?
-					ORDER BY datetime DESC
-					LIMIT ?
-			}, "foo $op ?";
+				is $sql, qq{
+					SELECT * FROM ${q}entry${q}
+						WHERE ${q}blog_id${q} $op ?
+						ORDER BY datetime DESC
+						LIMIT ?
+				}, "${q}foo${q} $op ?";
 
-			is_deeply $bind, [
-				3,
-				5
-			], "foo $op ?";
-		};
-
-		do {
-			my ($sql, $bind) = bind_named(qq{
-				SELECT * FROM entry
-					WHERE `blog_id` $op ?
-					ORDER BY datetime DESC
-					LIMIT :limit
-			}, {
-				blog_id => 3,
-				limit   => 5
-			});
-
-			is $sql, qq{
-				SELECT * FROM entry
-					WHERE `blog_id` $op ?
-					ORDER BY datetime DESC
-					LIMIT ?
-			}, "`foo` $op ?";
-
-			is_deeply $bind, [
-				3,
-				5
-			], "`foo` $op ?";
-		};
+				is_deeply $bind, [
+					3,
+					5
+				], "${q}foo${q} $op ?";
+			};
+		}
 	}
 };
 
