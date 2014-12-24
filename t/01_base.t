@@ -1,6 +1,5 @@
 use Test::More;
 use Test::Fatal;
-use Test::Name::FromLine;
 
 use SQL::NamedPlaceholder qw(bind_named);
 
@@ -102,6 +101,7 @@ subtest exceptions => sub {
 	like exception { bind_named('SELECT * FROM entry', []) }, qr/must specify HASH/;
 	like exception { bind_named('SELECT * FROM entry', undef) }, qr/must specify HASH/;
 	is exception { bind_named('SELECT * FROM entry', bless(+{}, 'Foo')) }, undef;
+	like exception { bind_named('SELECT * FROM entry WHERE id = ?', {}) }, qr/'id' does not exist in bind hash/;
 };
 
 done_testing;
