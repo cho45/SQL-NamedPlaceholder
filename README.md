@@ -17,8 +17,6 @@ SQL::NamedPlaceholder - extension of placeholder
 
     $dbh->prepare_cached($sql)->execute(@$bind);
 
-
-
 # DESCRIPTION
 
 SQL::NamedPlaceholder is extension of placeholder. This enable more readable and robust code.

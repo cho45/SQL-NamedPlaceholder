@@ -1,5 +1,10 @@
 {{$NEXT}}
 
+0.04 2014-12-24T10:35:05Z
+	- FIX: Care quotation for table name (by songmu)
+	- FIX: Dependency (by songmu)
+	- MODIFY: Raise error when the key does not exist in bind hash (by songmu)
+
 0.03 2013-08-08T04:00:55Z
 
 	- Fix packaging (by shibayu36)
@@ -9,5 +14,3 @@
 	* 0.02:
 	Fix Makefile.PL (by mechairoi)
 
-
-vim:set ft=changelog:
