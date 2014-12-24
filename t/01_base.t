@@ -1,6 +1,5 @@
 use Test::More;
 use Test::Fatal;
-use Test::Name::FromLine;
 
 use SQL::NamedPlaceholder qw(bind_named);
 
