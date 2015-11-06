@@ -3,7 +3,7 @@ package SQL::NamedPlaceholder;
 use strict;
 use warnings;
 use Exporter::Lite;
-use Scalar::Util qw(reftype);
+use Scalar::Util qw(reftype blessed);
 
 use Carp;
 
@@ -14,6 +14,8 @@ sub bind_named {
 	my ($sql, $hash) = @_;
 	$sql or croak 'my ($sql, $bind) = bind_named($sql, $hash) requires $sql';
 	(reftype($hash) || '') eq 'HASH' or croak 'must specify HASH as bind values';
+
+	croak 'blessed object cannot be bound' if grep { blessed($_) } values %$hash;
 
 	# replace question marks as placeholder. e.g. [`hoge` = ?] to [`hoge` = :hoge]
 	$sql =~ s{(([`"]?)(\S+?)\2\s*(=|<=?|>=?|<>|!=|<=>)\s*)\?}{$1:$3}g;
