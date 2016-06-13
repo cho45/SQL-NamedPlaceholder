@@ -4,7 +4,7 @@
       "cho45 <cho45@lowreal.net>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.1.1, CPAN::Meta::Converter version 2.141520",
+   "generated_by" : "Minilla/v3.0.2, CPAN::Meta::Converter version 2.141520",
    "license" : [
       "perl_5"
    ],
@@ -30,7 +30,8 @@
          "requires" : {
             "CPAN::Meta" : "0",
             "CPAN::Meta::Prereqs" : "0",
-            "Module::Build" : "0.38",
+            "Module::Build" : "0",
+            "Module::Build::Tiny" : "0.035",
             "perl" : "5.008_001"
          }
       },
@@ -69,10 +70,11 @@
          "web" : "https://github.com/cho45/SQL-NamedPlaceholder"
       }
    },
-   "version" : "0.04",
+   "version" : "0.10",
    "x_contributors" : [
       "mechairoi <ttsujikawa@gmail.com>",
       "shiba_yu36 <shibayu36@gmail.com>",
-      "Songmu <y.songmu@gmail.com>"
+      "Songmu <y.songmu@gmail.com>",
+      "karupanerura <karupa@cpan.org>"
    ]
 }

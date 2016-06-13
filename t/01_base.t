@@ -96,6 +96,13 @@ subtest array => sub {
 	};
 };
 
+subtest name_id => sub {
+	do {
+		my ($sql, $bind) = bind_named(q{ UPDATE foo SET a = '2016-02-02 00:00:00' }, { });
+		is $sql, q{ UPDATE foo SET a = '2016-02-02 00:00:00' };
+	};
+};
+
 subtest exceptions => sub {
 	like exception { bind_named('', {}) }, qr/requires \$sql/;
 	like exception { bind_named('SELECT * FROM entry', []) }, qr/must specify HASH/;

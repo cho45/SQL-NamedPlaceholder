@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+0.10 2016-06-13T05:22:43Z
+	- MODIFY (breaking change): Named placeholder must match following regexp: /:([A-Za-z_][A-Za-z0-9_]*)/ (by karupanerura #6)
+
 0.04 2014-12-24T10:35:05Z
 	- FIX: Care quotation for table name (by songmu)
 	- FIX: Dependency (by songmu)
