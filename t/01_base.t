@@ -109,6 +109,7 @@ subtest exceptions => sub {
 	like exception { bind_named('SELECT * FROM entry', undef) }, qr/must specify HASH/;
 	is exception { bind_named('SELECT * FROM entry', bless(+{}, 'Foo')) }, undef;
 	like exception { bind_named('SELECT * FROM entry WHERE id = ?', {}) }, qr/'id' does not exist in bind hash/;
+	like exception { bind_named('SELECT * FROM entry WHERE id = :user_id', { user_id => (bless {}, 't::user_id') }) }, qr/blessed object cannot be bound/;
 };
 
 done_testing;
